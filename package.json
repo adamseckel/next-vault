@@ -23,7 +23,7 @@
   },
   "scripts": {
     "dev": "next",
-    "build": "getManifest && next build",
+    "build": "yarn getManifest && next build",
     "start": "next start",
     "static": "next build && next export",
     "getManifest": "node ./updateManifest.js"
