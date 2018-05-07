@@ -1,0 +1,1 @@
+export const manifestVersion = '63629.18.04.02.2018-4'
