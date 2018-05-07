@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 // import injectTapEventPlugin from 'react-tap-event-plugin'
 import styled from 'react-emotion'
+import getConfig from 'next/config'
 // import firebase from 'firebase'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
@@ -34,19 +35,25 @@ const SignInButton = styled(FlatButton)`
     font-size: 16px !important;
   }
 `
-
+const { CLIENT_ID, APIKEY, CLIENT_SECRET } = {
+  CLIENT_ID: '23739',
+  APIKEY: '903ab7405fc642f69ec01311da0e2469',
+  CLIENT_SECRET: 'Y0.XJITwGaIofuQhZCfOU0ZjGA6Ie4NkErY8Z-uEUq0',
+}
 const apiKey =
   process.env.NODE_ENV === 'production'
     ? {
-        client_id: process.env.CLIENT_ID,
-        key: process.env.APIKEY,
-        client_secret: process.env.CLIENT_SECRET,
+        client_id: CLIENT_ID,
+        key: APIKEY,
+        client_secret: CLIENT_SECRET,
       }
     : {
         client_id: '13756',
         key: '43e0503b64df4ebc98f1c986e73d92ac',
         client_secret: 'm7aOvxvaLgAfeLkT4QC6mg1fyl81iZBt5ptzkq4Pay0',
       }
+
+console.log(apiKey)
 
 class App extends Component {
   static async getInitialProps({ req }) {
