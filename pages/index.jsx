@@ -36,11 +36,10 @@ const SignInButton = styled(FlatButton)`
 `
 
 const apiKey = {
-  client_id: process.env.REACT_APP_CLIENT_ID || '13756',
-  key: process.env.REACT_APP_APIKEY || '43e0503b64df4ebc98f1c986e73d92ac',
+  client_id: process.env.CLIENT_ID || '13756',
+  key: process.env.APIKEY || '43e0503b64df4ebc98f1c986e73d92ac',
   client_secret:
-    process.env.REACT_APP_CLIENT_SECRET ||
-    'm7aOvxvaLgAfeLkT4QC6mg1fyl81iZBt5ptzkq4Pay0',
+    process.env.CLIENT_SECRET || 'm7aOvxvaLgAfeLkT4QC6mg1fyl81iZBt5ptzkq4Pay0',
 }
 
 // const database = firebase
