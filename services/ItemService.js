@@ -90,8 +90,6 @@ export default function(getBungieRequest) {
       bucketDefinitions,
       statsDefinitions
     ) {
-      console.trace()
-      console.log({ manifest })
       const requests = characters.map(character => {
         const { characterId, membershipId } = character
         return getBungieRequest().then(bungieRequest =>

@@ -42,18 +42,6 @@ const apiKey = {
     process.env.CLIENT_SECRET || 'm7aOvxvaLgAfeLkT4QC6mg1fyl81iZBt5ptzkq4Pay0',
 }
 
-// const database = firebase
-//   .initializeApp({
-//     apiKey: 'AIzaSyDJo3DWxyZXBaCDDmYGZewRro-l4QKy9UI',
-//     authDomain: 'cruciblegg.firebaseapp.com',
-//     databaseURL: 'https://cruciblegg.firebaseio.com',
-//     storageBucket: 'cruciblegg.appspot.com',
-//   })
-//   .database()
-// const firebaseService = FirebaseService(
-//   database.ref(process.env.NODE_ENV || 'development')
-// )
-
 class App extends Component {
   static async getInitialProps({ req }) {
     const manifest = Manifest

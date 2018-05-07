@@ -14,7 +14,6 @@ export default function(
   membershipType,
   fakeMembershipID
 ) {
-  console.log({ membershipType })
   const bungieRequest = axios.create({
     baseURL: 'https://www.bungie.net/Platform',
     headers: {

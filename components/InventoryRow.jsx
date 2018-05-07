@@ -209,7 +209,6 @@ class ItemRow extends Component {
           lastCharacter: characterID,
         })
       } catch (e) {
-        console.log(e.message, lastItem)
         this.setState({
           mouseXY,
         })
@@ -332,7 +331,6 @@ class ItemRow extends Component {
         shouldUnequipReplacementItemID
       )
       .catch(error => {
-        console.log('catch?', error.message)
         const { order, lastOrder, initialCharacter, lastItem } = this.state
 
         this.setState({

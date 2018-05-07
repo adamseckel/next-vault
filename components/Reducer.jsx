@@ -23,7 +23,6 @@ let inventoryPollingInterval, inventoryPollingDelay
 
 function devLog(log) {
   if (process.env.NODE_ENV === 'production') return
-  console.log(log)
 }
 
 function calculateVaultColumns(characters, gridWidth) {
@@ -48,7 +47,6 @@ function removeSplash() {
 
 class Reducer extends Component {
   constructor(props) {
-    console.log(props)
     super(props)
     this.state = {
       bungieRequestService: false,
@@ -90,11 +88,9 @@ class Reducer extends Component {
     return store.get('Vault::AccountIndex').then(savedAccountIndex => {
       return BungieAuthorizationService(this.state.apiKey).then(
         authorization => {
-          console.log(this.state.apiKey.key)
           return BungieRequestService(authorization, this.state.apiKey.key)
             .getMembershipById()
             .then(membership => {
-              console.log({ membership })
               return this.setMembership(
                 membership,
                 authorization,
@@ -120,7 +116,6 @@ class Reducer extends Component {
   ) => {
     const destinyMembership = membership.destinyMemberships[accountIndex || 0]
     const authenticated = true
-    console.log(destinyMembership.membershipType)
     const bungieRequestService = BungieRequestService(
       authorization,
       this.state.apiKey.key,
@@ -145,7 +140,6 @@ class Reducer extends Component {
     })
     const accounts = membership && membership.destinyMemberships.length
     this.updateWidth()
-    console.log({ accounts })
     window.addEventListener('resize', this.updateWidth)
     return this.getAccount(destinyMembership, membership).then(() => {
       return store.set('Vault::AccountIndex', accountIndex)
@@ -167,7 +161,6 @@ class Reducer extends Component {
   }
 
   getAccount = (destinyMembership, membership) => {
-    console.log('get account', destinyMembership, membership)
     return Promise.all([
       ItemService(this.authorize).getCharacters(destinyMembership.membershipId),
     ]).then(([characters]) => {
@@ -187,7 +180,6 @@ class Reducer extends Component {
         characterArray,
         this.state.clientWidth
       )
-      console.log({ characterArray })
 
       this.setState({
         characters: characterArray,
@@ -198,7 +190,6 @@ class Reducer extends Component {
         statsDefinitions: DestinyStatDefinition,
         perksDefinitions: DestinySandboxPerkDefinition,
       })
-      console.log({ DestinyInventoryItemDefinition })
       return this.updateItems(destinyMembership.membershipId)
     })
   }
@@ -273,11 +264,6 @@ class Reducer extends Component {
   }
 
   updateItems = destinyMembershipID => {
-    console.log(
-      this.state.inventoryDefinitions,
-      this.state.bucketDefinitions,
-      this.state.statsDefinitions
-    )
     return ItemService(this.authorize)
       .getItems(
         this.state.clientWidth,
