@@ -19,13 +19,18 @@ const SignInButton = styled(FlatButton)`
     font-size: 16px !important;
   }
 `
-
-const apiKey = {
-  client_id: process.env.CLIENT_ID || '13756',
-  key: process.env.APIKEY || '43e0503b64df4ebc98f1c986e73d92ac',
-  client_secret:
-    process.env.CLIENT_SECRET || 'm7aOvxvaLgAfeLkT4QC6mg1fyl81iZBt5ptzkq4Pay0',
-}
+const apiKey =
+  process.env.NODE_ENV === 'production'
+    ? {
+        client_id: process.env.CLIENT_ID,
+        key: process.env.APIKEY,
+        client_secret: process.env.CLIENT_SECRET,
+      }
+    : {
+        client_id: '13756',
+        key: '43e0503b64df4ebc98f1c986e73d92ac',
+        client_secret: 'm7aOvxvaLgAfeLkT4QC6mg1fyl81iZBt5ptzkq4Pay0',
+      }
 
 class Home extends Component {
   render() {

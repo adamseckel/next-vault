@@ -48,6 +48,7 @@ function removeSplash() {
 class Reducer extends Component {
   constructor(props) {
     super(props)
+    console.log(props.apiKey, process.env)
     this.state = {
       bungieRequestService: false,
       authenticated: false,
